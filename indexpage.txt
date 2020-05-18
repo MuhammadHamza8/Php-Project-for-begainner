@@ -1,5 +1,6 @@
 <?php
-$con = mysqli_connect("localhost","root","","boost");
+$con = mysqli_connect("localhost","root","","boost"); // boost is the database name.
+
 
 if(isset($_POST['submit']))
 {
@@ -12,7 +13,7 @@ if(isset($_POST['submit']))
 
 
 
- $sql = "INSERT INTO user (name,	password,email, choice,messege)Value('$name','$password','$email','$choice','$messege')";
+ $sql = "INSERT INTO user (name,	password,email, choice,messege)Value('$name','$password','$email','$choice','$messege')"; /* user is the table name in the database */
 
 if(mysqli_query($con,$sql))
 {
