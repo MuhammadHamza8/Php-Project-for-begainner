@@ -1,0 +1,21 @@
+<?php
+
+$delete_id = $_REQUEST['delete_id'];
+
+$con = mysqli_connect("localhost","root","","boost");
+$sql = "DELETE FROM user WHERE id = '$delete_id'";
+if(mysqli_query($con,$sql))
+{
+
+    
+   echo"<script>alert('your record has been deleted successfully ');</script>";
+
+}
+else{
+    echo"<script>alert('data is not deleted ')</script>";
+}
+
+
+
+
+?>

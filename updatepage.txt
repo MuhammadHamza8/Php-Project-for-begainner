@@ -1,0 +1,117 @@
+<?php
+
+$con = mysqli_connect("localhost","root","","boost");
+$edit_id=$_REQUEST['edit_id'];
+$sql = "SELECT * FROM user Where id = '$edit_id' ";
+$result = mysqli_query($con,$sql);
+while($row = mysqli_fetch_assoc($result))
+{
+    //$id = $row['id'];
+    $name = $row['name'];
+    $password = $row['password'];
+    $email = $row['email'];
+    $choice = $row['choice'];
+    $messege = $row['messege'];
+}
+
+
+?>
+
+
+
+<?php
+if(isset($_POST['Update']))
+{
+    $edit_id=$_REQUEST['edit_id'];
+    $eidit_name =$_POST['eidit_name'];
+    $edit_password =$_POST['edit_password'];
+    $edit_email =$_POST['edit_email'];
+    $edit_choice = $_POST['edit_choice'];
+    $edit_messege =$_POST['edit_messege'];
+
+    $sqll = "UPDATE user SET name='$eidit_name', password = '$edit_password' ,email='$edit_email', choice=' $edit_choice ' , messege=' $edit_messege' WHERE id = '$edit_id'  ";
+
+   if(mysqli_query($con,$sqll))
+ {
+     echo"<div class='alert alert-warning alert-dismissible fade show' role='alert'>
+     <strong>Congrates!</strong> Your record has been updated successfully!
+     <button type='button' class='close' data-dismiss='alert' aria-label='Close'>
+       <span aria-hidden='true'>&times;</span>
+     </button>
+   </div>";
+     
+    
+ }
+ else{
+     echo"<script>alert('data is not updated');</script>";
+ }
+   
+   
+}
+?>
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <title></title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body class="img">
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-12">
+            <form action="" method="post">
+                <div class="form-group">
+                  <label class="lab" >Name</label>
+                  <input name = "eidit_name" value="<?php echo $name;?>" type="text" class="form-control" >
+                 
+                </div>
+                <div class="form-group">
+                  <label class="lab">Password</label>
+                  <input name="edit_password" value="<?php echo  $password ;?>" type="text" class="form-control" id="exampleInputPassword1" placeholder="">
+                </div>
+                <div class="form-group">
+                    <label class="lab">Email address</label>
+                    <input name="edit_email"  value="<?php echo  $email ;?>"  type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+                  </div>
+                  <div class="form-group">
+                    <label class="lab" > Gender</label>
+                    <select class="form-control"  id="exampleFormControlSelect1" name="edit_choice">
+                      <option value="Male">Male</option>
+                      <option value ="Female">Female</option>
+                      <option value="Other">Other </option>
+                    
+                    </select>
+                  </div>
+               
+                  <div class="form-group">
+                    <label class="lab" >Messege</label>
+                    <textarea class="form-control"  id="exampleFormControlTextarea1" rows="3" name="edit_messege"><?php echo  $messege ;?></textarea>
+                  </div>
+              
+                <button  name="Update" type="submit" class="btn col-md-8 btn-success ">Update</button> <a href="show.php" class="btn btn-primary col-md-4 active" role="button" aria-pressed="true">Check Record </a>
+              </form>
+        </div>
+
+    </div>
+
+</div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  </body>
+</html>
+
+
+
+

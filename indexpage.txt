@@ -1,0 +1,116 @@
+<?php
+$con = mysqli_connect("localhost","root","","boost");
+
+if(isset($_POST['submit']))
+{
+  $name=$_POST['name'];
+  $password = $_POST['password'];
+  $email=$_POST['email'];
+  $choice = $_POST['choice'];
+  $messege = $_POST['messege'];
+
+
+
+
+ $sql = "INSERT INTO user (name,	password,email, choice,messege)Value('$name','$password','$email','$choice','$messege')";
+
+if(mysqli_query($con,$sql))
+{
+  echo"<div class='alert alert-success alert-dismissible fade show' role='alert'>
+     <strong>Congrates!</strong> Your Record has been Inserted successfully! click the show button to check record! 
+     <button type='button' class='close' data-dismiss='alert' aria-label='Close'>
+       <span aria-hidden='true'>&times;</span>
+     </button>
+   </div>";
+}
+else
+{
+  echo"<script>alert('data is not inserted ');</script>";
+}
+
+
+}
+
+?>
+
+
+
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <title></title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body class="img">
+    
+ <h1 style="color:white; margin-left:300px;">PHP Contact Us Form  </h1>
+<div class="container mt-3  ">
+    <div class="row ">
+        <div class="col-md-12">
+            <form action="" method="post">
+                <div class="form-group">
+                  <label class="lab" >Name</label>
+                  
+                  <div class="col-8">
+                  <input name = "name" type="text" class="form-control" >
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="lab">Password</label>
+                  <div class="col-8">
+                  <input name="password" type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                  </div>
+                </div>
+                <div class="form-group">
+                    <label class="lab">Email address</label>
+                    <div class="col-8">
+                    <input name="email" type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="lab">Gender</label>
+                    <div class="col-8">
+                    <select class="form-control" id="exampleFormControlSelect1" name="choice">
+                      <option value="Male">Male</option>
+                      <option value ="Female">Female</option>
+                      <option value="Other">Other </option>
+                      
+                    </select>
+                    </div>
+                  </div>
+               
+                  <div class="form-group">
+                    <label class="lab" >Messege</label>
+                    <div class="col-8">
+
+                   
+                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="messege"></textarea>
+</div>
+                  </div>
+              
+                <button  name="submit" type="submit" class="btn col-md-8  btn-success btn-block">Submit</button> 
+    
+              </form>
+              <a href="show.php" class="btn btn-primary col-md-4 active" role="button" aria-pressed="true">Check Record </a>
+        </div>
+
+    </div>
+
+</div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  </body>
+</html>

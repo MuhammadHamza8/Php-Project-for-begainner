@@ -1,0 +1,19 @@
+body{
+    font-family: 'Roboto', sans-serif;
+}
+
+.lab{
+
+    font-size: 25px;
+   
+    color: violet;
+
+}
+
+
+.img{
+    background-image: url(images/9.jpg);
+    background-repeat: no-repeat;
+    background-position:center;
+    background-size: cover;
+}
