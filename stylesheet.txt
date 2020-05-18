@@ -2,7 +2,7 @@ body{
     font-family: 'Roboto', sans-serif;
 }
 
-.lab{
+.lab{                                                         /* lab class is for lable field name   */
 
     font-size: 25px;
    
